@@ -1,6 +1,7 @@
 package edu.shashin.oracledocs.java.defaultmethod;
 
 import java.time.LocalDateTime;
+import java.time.ZonedDateTime;
 
 public class TimeClientImpl implements TimeClient {
 
@@ -26,6 +27,12 @@ public class TimeClientImpl implements TimeClient {
 	public LocalDateTime getLocalDateTime() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public ZonedDateTime getZonedDateTime(String zoneString) {
+		System.out.println("Static method of impl called");
+		return ZonedDateTime.of(getLocalDateTime(), TimeClient.getZoneId(zoneString));
 	}
 
 }
